@@ -47,9 +47,8 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
 1. Then use the command ``` php artisan serve ``` to run the application locally.
 
 #### Documentation 
-
-* [Mockup] (https://marvelapp.com/49ee7cd)
-* [Diagram] (https://drive.google.com/file/d/1bfwqPzUe41-6qxgvk8_1538o8Q2YfH4W/view?usp=sharing)
+* [Mockup](https://marvelapp.com/49ee7cd).
+* [Diagram](https://drive.google.com/file/d/1bfwqPzUe41-6qxgvk8_1538o8Q2YfH4W/view?usp=sharing).
 
 #### Routes
 
