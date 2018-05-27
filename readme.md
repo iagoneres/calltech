@@ -46,9 +46,31 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
 1. Generate the application key using the command ``` php artisan key:generate ```.
 1. Then use the command ``` php artisan serve ``` to run the application locally.
 
+#### Documentation 
+
+* [Mockup] (https://marvelapp.com/49ee7cd)
+* [Diagram] (https://drive.google.com/file/d/1bfwqPzUe41-6qxgvk8_1538o8Q2YfH4W/view?usp=sharing)
+
 #### Routes
 
-* Authentication   
-    < Coming son ... >   
-* Users   
-    < Coming son ... >w
+ * **URL Default**  
+    ``` http://ip_servidor/ ```
+
+* **Authentication**   
+    ``` POST: oauth/token ```  
+    ``` BODY: ```  
+        ```console
+            {
+              "grant_type": "password",
+              "client_id": "CLIENT_ID",
+              "client_secret": "SECRET",
+              "username": "USUÁRIO",
+              "password": "SENHA",
+              "scope": "*"
+            } 
+        ```
+* **Users**   
+    < coming soon ... >
+    
+* **Tickets**   
+    < coming soon ... >
