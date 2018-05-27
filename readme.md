@@ -29,18 +29,15 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
 
 ## Installation
 
-#### Requiriments
-
+#### Requiriments  
 * Apache
 * PHP >= 7.0
 * PostgreSQL 10.4
 * Composer 1.6.5
 
 ## Usage
-
-
 #### Getting Started
-
+    
 1. Create your file ```.env``` according your configuration.
 1. Download the project and run ``` composer install ```.
 1. Generate the application key using the command ``` php artisan key:generate ```.
@@ -51,11 +48,10 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
 * [Diagram](https://drive.google.com/file/d/1bfwqPzUe41-6qxgvk8_1538o8Q2YfH4W/view?usp=sharing).
 
 #### Routes
-
- * **URL Default**  
+   - **URL Default**  
     ``` http://ip_servidor/ ```
-
-* **Authentication**   
+    
+   - **Authentication**  
     ``` POST: oauth/token ```  
     ``` BODY: ```  
         ```console
@@ -68,8 +64,10 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
               "scope": "*"
             } 
         ```
-* **Users**   
-    < coming soon ... >
-    
-* **Tickets**   
-    < coming soon ... >
+   - **User**  
+   ``` coming soon... ```
+   - **Tickets**  
+   ``` coming soon... ```
+   - **Payments**  
+   ``` coming soon... ```
+
