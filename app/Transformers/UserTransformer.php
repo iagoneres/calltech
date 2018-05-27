@@ -22,15 +22,15 @@ class UserTransformer extends TransformerAbstract
     public function transform(User $model)
     {
         return [
-            'id'         => (int) $model->id,
+            'id'            => (int) $model->id,
 
-            'name'      => $model->name,
-            'cpf_cnpj'  => $model->cpf_cnpj,
-            'birthdate' => $model->birthdate,
-            'email'     => $model->email,
+            'name'          => $model->name,
+            'cpf_cnpj'      => $model->cpf_cnpj,
+            'birthdate'     => $model->birthdate,
+            'email'         => $model->email,
 
-            'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            'created_at'    => $model->created_at->toDateTimeString(),
+            'updated_at'    => $model->updated_at->toDateTimeString()
         ];
     }
 }

@@ -22,12 +22,20 @@ class AddressTransformer extends TransformerAbstract
     public function transform(Address $model)
     {
         return [
-            'id'         => (int) $model->id,
+            'id'            => (int) $model->id,
 
-            /* place your other model properties here */
+            'postal_code'   => $model->postal_code,
+            'street'        => $model->street,
+            'number'        => $model->number,
+            'neighborhood'  => $model->neighborhood,
+            'city'          => $model->city,
+            'state'         => $model->state,
+            'country'       => $model->country,
+            'complement'    => $model->complement,
+            'user_id'       => $model->user_id,
 
-            'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            'created_at'    => $model->created_at->toDateTimeString(),
+            'updated_at'    => $model->updated_at->toDateTimeString()
         ];
     }
 }
