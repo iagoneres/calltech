@@ -23,4 +23,5 @@ use Illuminate\Support\Facades\Route;
  * Grupo de rotas protegidas por autenticação.
  */
 Route::middleware(['auth:api'])->group(function() {
+    Route::resource('/user', 'UsersController');
 });

@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Presenters\UserPresenter;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\UserRepository;
@@ -44,5 +45,13 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
+    /**
+     * @return string
+     */
+    public function presenter()
+    {
+        return UserPresenter::class;
+    }
+
 }
