@@ -65,7 +65,68 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
             } 
         ```
    - **User**  
-   ``` coming soon... ```
+   * List all users  
+   ``` GET: api/user/ ```  
+    ``` HEADERS: ```  
+        ```console
+            {
+              "Authorization": "Bearer {{token}}",
+            } 
+        ```
+   * Logged User  
+   ``` GET: api/user/{id} ```  
+    ``` HEADERS: ```  
+        ```console
+            {
+              "Authorization": "Bearer {{token}}",
+            } 
+        ```
+   * Create User  
+   ``` POST: api/user/ ```  
+    ``` HEADERS: ```  
+        ```console
+            {
+              "Authorization": "Bearer {{token}}",
+            } 
+        ```
+     ``` BODY: ```  
+        ```console
+            {
+              "name": {{name}} (required),
+              "cpf_cnpj": {{cpf_cnpj}} (required),
+              "birthdate": {{birthdate}} (required),
+              "email": {{email}} (required),
+              "password": {{password}} (required),
+            } 
+        ```
+   * Update User  
+   ``` PUT: api/user/ ```  
+    ``` HEADERS: ```  
+        ```console
+            {
+              "Authorization": "Bearer {{token}}",
+            } 
+        ```
+     ``` BODY: ```  
+        ```console
+            {
+              "name": {{name}} (optional),
+              "cpf_cnpj": {{cpf_cnpj}} (optional),
+              "birthdate": {{birthdate}} (optional),
+              "email": {{email}} (optional),
+              "password": {{password}} (optional),
+            } 
+        ```
+   
+   * Delete User  
+   ``` DELETE: api/user/{id} ```  
+    ``` HEADERS: ```  
+        ```console
+            {
+              "Authorization": "Bearer {{token}}",
+            } 
+        ```
+   
    - **Tickets**  
    ``` coming soon... ```
    - **Payments**  
