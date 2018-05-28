@@ -2,31 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Entities\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\UserCreateRequest;
-use App\Http\Requests\UserUpdateRequest;
-use App\Repositories\UserRepository;
-use App\Validators\UserValidator;
+use App\Http\Requests\TicketCreateRequest;
+use App\Http\Requests\TicketUpdateRequest;
+use App\Repositories\TicketRepository;
+use App\Validators\TicketValidator;
 
-class UsersController extends Controller
+/**
+ * Class TicketsController.
+ *
+ * @package namespace App\Http\Controllers;
+ */
+class TicketsController extends Controller
 {
-
     /**
-     * @var UserRepository
+     * @var TicketRepository
      */
     protected $repository;
 
     /**
-     * @var UserValidator
+     * @var TicketValidator
      */
     protected $validator;
 
-    public function __construct(UserRepository $repository, UserValidator $validator)
+    /**
+     * TicketsController constructor.
+     *
+     * @param TicketRepository $repository
+     * @param TicketValidator $validator
+     */
+    public function __construct(TicketRepository $repository, TicketValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
@@ -40,34 +49,39 @@ class UsersController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $users = $this->repository->all();
+        $tickets = $this->repository->all();
 
-        return $users;
+        return $tickets;
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param UserCreateRequest $request
-     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+     * @param  TicketCreateRequest $request
+     *
+     * @return \Illuminate\Http\Response
+     *
+     * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(UserCreateRequest $request)
+    public function store(TicketCreateRequest $request)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            $user = $this->repository->create($request->all());
+            $ticket = $this->repository->create($request->all());
 
             $response = [
-                'message' => 'User created.',
-                'data'    => $user->toArray(),
+                'message' => 'Ticket created.',
+                'data'    => $ticket->toArray(),
             ];
 
             if ($request->wantsJson()) {
 
                 return response()->json($response);
             }
+
+            return redirect()->back()->with('message', $response['message']);
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -89,8 +103,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = $this->repository->find($id);
-        return $user;
+        $ticket = $this->repository->find($id);
+
+        return $ticket;
     }
 
     /**
@@ -102,28 +117,32 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $user = $this->repository->find($id);
-        return view('users.edit', compact('user'));
+        $ticket = $this->repository->find($id);
+
+        return view('tickets.edit', compact('ticket'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UserUpdateRequest $request
-     * @param $id
-     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+     * @param  TicketUpdateRequest $request
+     * @param  string            $id
+     *
+     * @return Response
+     *
+     * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(UserUpdateRequest $request, $id)
+    public function update(TicketUpdateRequest $request, $id)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $user = $this->repository->update($request->all(), $id);
+            $ticket = $this->repository->update($request->all(), $id);
 
             $response = [
-                'message' => 'User updated.',
-                'data'    => $user->toArray(),
+                'message' => 'Ticket updated.',
+                'data'    => $ticket->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -161,11 +180,11 @@ class UsersController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'User deleted.',
+                'message' => 'Ticket deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'User deleted.');
+        return redirect()->back()->with('message', 'Ticket deleted.');
     }
 }
