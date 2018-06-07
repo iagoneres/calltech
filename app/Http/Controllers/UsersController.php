@@ -6,6 +6,7 @@ use App\Entities\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\UserCreateRequest;
@@ -146,7 +147,6 @@ class UsersController extends Controller
         }
     }
 
-
     /**
      * Remove the specified resource from storage.
      *
@@ -167,5 +167,37 @@ class UsersController extends Controller
         }
 
         return redirect()->back()->with('message', 'User deleted.');
+    }
+
+    public function revokeToken(Request $request)
+    {
+        try {
+            \Log::debug($request->get('user_id'));
+            $user = User::find($request->get('user_id'));
+            \Log::info($user);
+            $userTokens = $user->tokens()->get();
+            \Log::alert($userTokens);
+
+            foreach ($userTokens as $token) {
+                $token->revoke();
+            }
+
+            return response()->json([
+                'error'   => false,
+                'message' => 'Usuário deslogado com sucesso.'
+            ]);
+
+        } catch(\Exception $e) {
+            return response()->json([
+                'error'   => true,
+                'message' => $e->getMessage()
+            ]);
+        }
+
+    }
+
+    public function authenticatedUser()
+    {
+        return Auth::user();
     }
 }

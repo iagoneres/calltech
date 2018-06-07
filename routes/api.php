@@ -23,5 +23,9 @@ use Illuminate\Support\Facades\Route;
  * Grupo de rotas protegidas por autenticação.
  */
 Route::middleware(['auth:api'])->group(function() {
-    Route::resource('/user', 'UsersController');
+
+    Route::get('/user/authenticated',   'UsersController@authenticatedUser');
+    Route::post('/user/logout',         'UsersController@revokeToken');
+    Route::resource('/user',       'UsersController');
+
 });
