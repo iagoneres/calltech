@@ -46,17 +46,12 @@ class AddressController extends Controller
     public function store(Request $request)
     {
         try {
-
 //            $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            $user = $this->repository->create($request->all());
+            $address  = $this->repository->create($request->all());
+            $response = array_merge(['message' => 'Address created.'], $address);
 
-            $response = [
-                'message' => 'Addresses created.',
-                'data'    => $user->toArray(),
-            ];
-
-            return response()->json($response);
+            return $response;
 
         } catch (ValidatorException $e) {
             return response()->json([
@@ -98,14 +93,10 @@ class AddressController extends Controller
 
 //            $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $address = $this->repository->update($request->all(), $id);
+            $address  = $this->repository->update($request->all(), $id);
+            $response = array_merge(['message' => 'Address updated.'], $address);
 
-            $response = [
-                'message' => 'Address updated.',
-                'data'    => $address->toArray(),
-            ];
-
-            return response()->json($response);
+            return $response;
 
         } catch (ValidatorException $e) {
 
@@ -118,6 +109,11 @@ class AddressController extends Controller
             }
 
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
+        } catch (\Exception $e) {
+            return response()->json([
+                'error'   => true,
+                'message' => $e->getMessage()
+            ]);
         } catch (\Exception $e) {
             return response()->json([
                 'error'   => true,
