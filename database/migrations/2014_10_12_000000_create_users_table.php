@@ -16,8 +16,8 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('cpf_cnpj', 14)->unique();
             $table->date('birthdate');
+            $table->tinyInteger('gender');
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();

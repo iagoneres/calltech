@@ -2,13 +2,15 @@
 
 namespace App\Entities;
 
+
 /**
- * Class Address.
+ * Class Customer.
  *
  * @package namespace App\Entities;
  */
-class Address extends AppModel
+class Customer extends AppModel
 {
+
     /**
      * The attributes that are mass assignable.
      *
@@ -16,14 +18,7 @@ class Address extends AppModel
      */
     protected $fillable = [
         'user_id',
-        'postal_code',
-        'street',
-        'number',
-        'neighborhood',
-        'city',
-        'state',
-        'country',
-        'complement'
+        'cpf',
     ];
 
     /**
@@ -44,5 +39,4 @@ class Address extends AppModel
     {
         return $this->belongsTo(User::class);
     }
-
 }

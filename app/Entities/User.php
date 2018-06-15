@@ -18,8 +18,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'cpf_cnpj',
         'birthdate',
+        'gender',
         'email',
         'password',
     ];
@@ -34,9 +34,37 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    /**
+     * The attributes of date type.
+     *
+     * @var array
+     */
     protected $dates = [
       'created_at',
       'updated_at',
       'delete_at'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function address() {
+        return $this->hasOne(Address::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function customer() {
+        return $this->hasOne(Customer::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function provider() {
+        return $this->hasOne(Provider::class);
+    }
+
+
 }

@@ -3,12 +3,13 @@
 namespace App\Entities;
 
 /**
- * Class Address.
+ * Class Provider.
  *
  * @package namespace App\Entities;
  */
-class Address extends AppModel
+class Provider extends AppModel
 {
+
     /**
      * The attributes that are mass assignable.
      *
@@ -16,14 +17,8 @@ class Address extends AppModel
      */
     protected $fillable = [
         'user_id',
-        'postal_code',
-        'street',
-        'number',
-        'neighborhood',
-        'city',
-        'state',
-        'country',
-        'complement'
+        'cnpj',
+        'rating'
     ];
 
     /**

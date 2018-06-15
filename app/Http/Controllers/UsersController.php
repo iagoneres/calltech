@@ -14,7 +14,7 @@ use App\Http\Requests\UserUpdateRequest;
 use App\Repositories\UserRepository;
 use App\Validators\UserValidator;
 
-class UsersController extends Controller
+class UsersController extends AppController
 {
 
     /**
@@ -58,7 +58,16 @@ class UsersController extends Controller
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            $user = $this->repository->create($request->all());
+            $data = [
+                'name'      => $request->get('name'),
+                'cpf_cnpj'  => $request->get('cpf_cnpj'),
+                'email'     => $request->get('email'),
+                'birthdate' => $request->get('birthdate'),
+                'password'  => bcrypt($request->get('password')),
+            ];
+
+            $user = $this->repository->create($data);
+
             $response = array_merge(['message' => 'User created.'], $user);
 
             return $response;
@@ -67,6 +76,11 @@ class UsersController extends Controller
             return response()->json([
                 'error'   => true,
                 'message' => $e->getMessageBag()
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error'   => true,
+                'message' => $e->getMessage()
             ]);
         }
     }
@@ -131,6 +145,12 @@ class UsersController extends Controller
             ]);
     }
 
+    /**
+     *  Logoff user
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function revokeToken(Request $request)
     {
         try {
@@ -155,6 +175,11 @@ class UsersController extends Controller
 
     }
 
+    /**
+     * Retorna o usuário autenticado
+     *
+     * @return \Illuminate\Contracts\Auth\Authenticatable|null
+     */
     public function authenticatedUser()
     {
         return Auth::user();

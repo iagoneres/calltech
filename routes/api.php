@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
  * Grupo de rotas abertas.
  */
 
-
+Route::post('/user/create', 'UsersController@store');
 
 /**
  * Grupo de rotas protegidas por autenticação.

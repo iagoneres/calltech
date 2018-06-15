@@ -16,6 +16,7 @@ class CreateAddressesTable extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->unsignedInteger('user_id');
             $table->string('postal_code', 8);
             $table->string('street', 300);
             $table->integer('number')->nullable();
@@ -25,11 +26,10 @@ class CreateAddressesTable extends Migration
             $table->string('country', 2)->default('BR');
             $table->string('complement')->nullable();
 
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-
             $table->timestamps();
-            $table->softDeletes();
+            $table->softDeletes()
+            ;
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

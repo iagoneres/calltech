@@ -5,11 +5,11 @@ namespace App\Repositories;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface TicketRepository.
+ * Interface CustomerRepository.
  *
  * @package namespace App\Repositories;
  */
-interface TicketRepository extends RepositoryInterface
+interface CustomerRepository extends RepositoryInterface
 {
     //
 }

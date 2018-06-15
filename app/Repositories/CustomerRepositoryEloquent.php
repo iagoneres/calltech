@@ -4,16 +4,16 @@ namespace App\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\BankAccountRepository;
-use App\Entities\BankAccount;
-use App\Validators\BankAccountValidator;
+use App\Repositories\CustomerRepository;
+use App\Entities\Customer;
+use App\Validators\CustomerValidator;
 
 /**
- * Class BankAccountRepositoryEloquent.
+ * Class CustomerRepositoryEloquent.
  *
  * @package namespace App\Repositories;
  */
-class BankAccountRepositoryEloquent extends BaseRepository implements BankAccountRepository
+class CustomerRepositoryEloquent extends BaseRepository implements CustomerRepository
 {
     /**
      * Specify Model class name
@@ -22,7 +22,7 @@ class BankAccountRepositoryEloquent extends BaseRepository implements BankAccoun
      */
     public function model()
     {
-        return BankAccount::class;
+        return Customer::class;
     }
 
     /**
@@ -33,7 +33,7 @@ class BankAccountRepositoryEloquent extends BaseRepository implements BankAccoun
     public function validator()
     {
 
-        return BankAccountValidator::class;
+        return CustomerValidator::class;
     }
 
 

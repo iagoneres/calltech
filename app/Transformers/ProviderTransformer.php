@@ -3,23 +3,23 @@
 namespace App\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use App\Entities\Ticket;
+use App\Entities\Provider;
 
 /**
- * Class TicketTransformer.
+ * Class ProviderTransformer.
  *
  * @package namespace App\Transformers;
  */
-class TicketTransformer extends TransformerAbstract
+class ProviderTransformer extends TransformerAbstract
 {
     /**
-     * Transform the Ticket entity.
+     * Transform the Provider entity.
      *
-     * @param \App\Entities\Ticket $model
+     * @param \App\Entities\Provider $model
      *
      * @return array
      */
-    public function transform(Ticket $model)
+    public function transform(Provider $model)
     {
         return [
             'id'         => (int) $model->id,
