@@ -22,6 +22,9 @@ class User extends Authenticatable
         'gender',
         'email',
         'password',
+        'gender',
+        'cpf_cnpj',
+        'type'
     ];
 
     /**

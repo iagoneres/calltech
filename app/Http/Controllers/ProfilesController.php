@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Services\ProfileService;
 use App\Validators\ProfileValidator;
-use app\Http\Controllers\Traits\CrudMethods;
+use App\Http\Controllers\Traits\CrudMethods;
+use Illuminate\Http\Request;
 
 /**
  * Class ProfilesController.

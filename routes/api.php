@@ -27,24 +27,19 @@ Route::middleware(['auth:api'])->group(function() {
     /**
      * User
      */
-    Route::get('/user/authenticated',    'UsersController@authenticatedUser');
-    Route::post('/user/logout',          'UsersController@revokeToken');
-    Route::resource('/user',        'UsersController');
+    Route::get('/user/authenticated',   'UsersController@authenticatedUser');
+    Route::post('/user/logout',         'UsersController@revokeToken');
+    Route::resource('/user',            'UsersController');
 
     /**
-     * Provider
+     * Profile
      */
-    Route::resource('/provider',    'ProvidersController');
-
-    /**
-     * Customer
-     */
-    Route::resource('/customer',    'CustomersController');
+    Route::resource('/profile',         'ProfilesController');
 
     /**
      * Address
      */
-    Route::get('/address/cep/{cep}',           'AddressesController@findByCep');
-    Route::resource('/address',     'AddressesController');
+    Route::get('/address/cep/{cep}',    'AddressesController@findByCep');
+    Route::resource('/address',         'AddressesController');
 
 });

@@ -19,13 +19,13 @@ class CreateProfilesTable extends Migration
             $table->increments('id');
 
             $table->unsignedInteger('user_id');
-            $table->integer('rating');
-            $table->string('postal_code', 8);
-            $table->string('street', 300);
+            $table->integer('rating')->nullable();
+            $table->string('postal_code', 8)->nullable();
+            $table->string('street', 300)->nullable();
             $table->integer('number')->nullable();
             $table->string('neighborhood', 200);
-            $table->string('city', 100);
-            $table->string('state', 2);
+            $table->string('city', 100)->nullable();
+            $table->string('state', 2)->nullable();
             $table->string('country', 2)->default('BR');
             $table->string('complement')->nullable();
 

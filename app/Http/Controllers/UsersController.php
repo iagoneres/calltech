@@ -64,6 +64,8 @@ class UsersController extends AppController
                 'email'     => $request->get('email'),
                 'birthdate' => $request->get('birthdate'),
                 'password'  => bcrypt($request->get('password')),
+                'gender'    => $request->get('gender'),
+                'type'      => $request->get('type')
             ];
 
             $user = $this->repository->create($data);
