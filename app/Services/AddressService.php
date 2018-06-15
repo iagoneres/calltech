@@ -72,7 +72,14 @@ class AddressService extends AppService
                 $res = $this->client->request('GET', $url.$cep . '/json/');
                 $json = json_decode($res->getBody(), true);
 
-                return $json;
+                $data = [
+                    'postal_code'   => $json['cep'],
+                    'street'        => $json['logradouro'],
+                    'neighborhood'  => $json['bairro'],
+                    'city'          => $json['localidade'],
+                    'state'         => $json['uf'],
+                ];
+                return $data;
             }
         } catch (\Exception $e) {
             return response()->json(['error' => true, 'message' => $e->getMessage()], 401);
