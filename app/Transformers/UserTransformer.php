@@ -28,6 +28,7 @@ class UserTransformer extends TransformerAbstract
             'cpf_cnpj'      => $model->cpf_cnpj,
             'birthdate'     => $model->birthdate,
             'email'         => $model->email,
+            'type'          => $model->type,
 
             'created_at'    => $model->created_at->toDateTimeString(),
             'updated_at'    => $model->updated_at->toDateTimeString()

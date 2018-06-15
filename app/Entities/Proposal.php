@@ -17,7 +17,7 @@ class Proposal extends AppModel
      * @var array
      */
     protected $fillable = [
-        'provider_id',
+        'user_id',
         'issue_id',
         'status',
         'value'

@@ -42,6 +42,16 @@ Route::middleware(['auth:api'])->group(function() {
     Route::resource('/issue',           'IssuesController');
 
     /**
+     * Proposal
+     */
+    Route::resource('/proposal',        'ProposalsController');
+
+    /**
+     * Skill
+     */
+    Route::resource('/skill',           'SkillsController');
+
+    /**
      * Address
      */
     Route::get('/address/cep/{cep}',    'AddressesController@findByCep');
