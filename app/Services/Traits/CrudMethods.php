@@ -75,4 +75,16 @@ trait CrudMethods
         }
         return $this->repository->skipPresenter()->findWhere($data);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param $id
+     * @return array
+     */
+    public function delete($id)
+    {
+        $this->repository->delete($id);
+        return ['error' => false];
+    }
 }

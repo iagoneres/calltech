@@ -60,4 +60,15 @@ trait CrudMethods
         $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
         return $this->service->update($request->all(), $id);
     }
+
+    /**
+     * Softdeletes the specified resource from storage.
+     *
+     * @param $id
+     * @return array
+     */
+    public function destroy($id)
+    {
+        return $this->service->delete($id);
+    }
 }

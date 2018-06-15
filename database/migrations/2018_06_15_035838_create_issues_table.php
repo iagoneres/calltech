@@ -20,10 +20,11 @@ class CreateIssuesTable extends Migration
 
             $table->unsignedInteger('user_id');
             $table->string('title', 150);
+            $table->longText('description');
             $table->string('category');
             $table->string('level');
-            $table->string('status');
-            $table->decimal('value', 10, 2);
+            $table->string('status')->default(0);
+            $table->decimal('value', 10, 2)->nullable();
 
             $table->timestamps();
             $table->softDeletes();

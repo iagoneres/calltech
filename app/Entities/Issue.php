@@ -18,6 +18,7 @@ class Issue extends AppModel
     protected $fillable = [
         'user_id',
         'title',
+        'description',
         'category',
         'level',
         'status',

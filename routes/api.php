@@ -37,6 +37,11 @@ Route::middleware(['auth:api'])->group(function() {
     Route::resource('/profile',         'ProfilesController');
 
     /**
+     * Issue
+     */
+    Route::resource('/issue',           'IssuesController');
+
+    /**
      * Address
      */
     Route::get('/address/cep/{cep}',    'AddressesController@findByCep');
