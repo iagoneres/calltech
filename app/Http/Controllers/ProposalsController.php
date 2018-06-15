@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Traits\CrudMethods;
 use App\Services\ProposalService;
 use App\Validators\ProposalValidator;
 
@@ -12,6 +13,7 @@ use App\Validators\ProposalValidator;
  */
 class ProposalsController extends AppController
 {
+    use CrudMethods;
 
     /**
      * @var ProposalService

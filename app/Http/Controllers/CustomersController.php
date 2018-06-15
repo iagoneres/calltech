@@ -2,16 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use app\Http\Controllers\Traits\CrudMethods;
+use App\Http\Controllers\Traits\CrudMethods;
 use App\Services\CustomerService;
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use Prettus\Validator\Contracts\ValidatorInterface;
-use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\CustomerCreateRequest;
-use App\Http\Requests\CustomerUpdateRequest;
-use App\Repositories\CustomerRepository;
 use App\Validators\CustomerValidator;
 
 /**

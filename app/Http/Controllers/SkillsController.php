@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\SkillService;
 use App\Validators\SkillValidator;
+use App\Http\Controllers\Traits\CrudMethods;
 
 /**
  * Class SkillsController.
@@ -12,6 +13,8 @@ use App\Validators\SkillValidator;
  */
 class SkillsController extends AppController
 {
+
+    use CrudMethods;
 
     /**
      * @var SkillService

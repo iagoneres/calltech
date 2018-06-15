@@ -31,6 +31,9 @@ class Skill extends AppModel
         'deleted_at'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function provider()
     {
         return $this->belongsTo(Provider::class);

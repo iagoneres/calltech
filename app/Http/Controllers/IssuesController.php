@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Traits\CrudMethods;
 use App\Services\IssueService;
 use App\Validators\IssueValidator;
 
@@ -12,6 +13,7 @@ use App\Validators\IssueValidator;
  */
 class IssuesController extends AppController
 {
+    use CrudMethods;
 
     /**
      * @var IssueService

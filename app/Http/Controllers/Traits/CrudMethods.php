@@ -14,6 +14,7 @@ trait CrudMethods
 {
     /** @var  AppService $service */
     protected $service;
+
     /** @var  ValidatorInterface $validator */
     protected $validator;
 
