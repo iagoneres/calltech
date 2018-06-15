@@ -35,4 +35,20 @@ class Issue extends AppModel
         'deleted_at'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function proposals()
+    {
+        return $this->hasMany(Proposal::class);
+    }
+
 }

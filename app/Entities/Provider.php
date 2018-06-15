@@ -40,4 +40,20 @@ class Provider extends AppModel
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function skills()
+    {
+        return $this->hasMany(Skill::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function proposals()
+    {
+        return $this->hasMany(Proposal::class);
+    }
+
 }

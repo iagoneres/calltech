@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entities;
+use App\Services\ProviderService;
 
 /**
  * Class Proposal.
@@ -32,5 +33,21 @@ class Proposal extends AppModel
         'updated_at',
         'deleted_at'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function issue()
+    {
+        return $this->belongsTo(Issue::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function provider()
+    {
+        return $this->belongsTo(ProviderService::class);
+    }
 
 }

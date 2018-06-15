@@ -31,4 +31,9 @@ class Skill extends AppModel
         'deleted_at'
     ];
 
+    public function provider()
+    {
+        return $this->belongsTo(Provider::class);
+    }
+
 }
