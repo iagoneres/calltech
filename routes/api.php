@@ -24,8 +24,11 @@ Route::post('/user/create', 'UsersController@store');
  */
 Route::middleware(['auth:api'])->group(function() {
 
-    Route::get('/user/authenticated',   'UsersController@authenticatedUser');
-    Route::post('/user/logout',         'UsersController@revokeToken');
-    Route::resource('/user',       'UsersController');
+    Route::get('/user/authenticated',    'UsersController@authenticatedUser');
+    Route::post('/user/logout',          'UsersController@revokeToken');
+    Route::resource('/user',        'UsersController');
+    Route::resource('/address',     'AddressesController');
+    Route::resource('/provider',    'ProvidersController');
+    Route::resource('/customer',    'CustomersController');
 
 });

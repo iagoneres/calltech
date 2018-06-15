@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use app\Http\Controllers\Traits\CrudMethods;
-use App\Repositories\AddressRepository;
 use App\Services\AddressService;
 use App\Validators\AddressValidator;
-use Illuminate\Http\Request;
 
 class AddressesController extends AppController
 {
