@@ -18,7 +18,7 @@ class CreateIssuesTable extends Migration
 		Schema::create('issues', function(Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('customer_id');
+            $table->unsignedInteger('user_id');
             $table->string('title', 150);
             $table->string('category');
             $table->string('level');
@@ -28,7 +28,7 @@ class CreateIssuesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('customer_id')->references('id')->on('customers')
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade');
 		});
 	}

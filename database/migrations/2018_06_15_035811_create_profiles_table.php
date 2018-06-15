@@ -1,22 +1,25 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAddressesTable extends Migration
+/**
+ * Class CreateProfilesTable.
+ */
+class CreateProfilesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('addresses', function (Blueprint $table) {
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('profiles', function(Blueprint $table) {
             $table->increments('id');
 
             $table->unsignedInteger('user_id');
+            $table->integer('rating');
             $table->string('postal_code', 8);
             $table->string('street', 300);
             $table->integer('number')->nullable();
@@ -27,19 +30,19 @@ class CreateAddressesTable extends Migration
             $table->string('complement')->nullable();
 
             $table->timestamps();
-            $table->softDeletes()
-            ;
-            $table->foreign('user_id')->references('id')->on('users');
-        });
-    }
+            $table->softDeletes();
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('addresses');
-    }
+            $table->foreign('user_id')->references('id')->on('users');
+		});
+	}
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::drop('profiles');
+	}
 }

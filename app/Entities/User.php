@@ -48,22 +48,22 @@ class User extends Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function address() {
-        return $this->hasOne(Address::class);
+    public function profile() {
+        return $this->hasOne(Profile::class);
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function customer() {
-        return $this->hasOne(Customer::class);
+    public function proposals() {
+        return $this->hasMany(Proposal::class);
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function provider() {
-        return $this->hasOne(Provider::class);
+    public function issues() {
+        return $this->hasMany(Issue::class);
     }
 
 

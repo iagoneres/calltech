@@ -2,31 +2,32 @@
 
 namespace App\Services;
 
+use App\Repositories\SkillRepository;
 use App\Services\Traits\CrudMethods;
-use App\Repositories\ProviderRepository;
+use App\Repositories\ProfileRepository;
 
 /**
- * Class ProviderService
+ * Class ProfileService
  *
  * @package App\Services
  */
-class ProviderService extends AppService
+class ProfileService extends AppService
 {
     use CrudMethods {
         all as public processAll;
     }
 
     /**
-     * @var ProviderRepository $repository
+     * @var ProfileRepository $repository
      */
     protected $repository;
 
     /**
-     * ProviderService constructor.
+     * ProfileService constructor.
      *
-     * @param ProviderRepository $repository
+     * @param ProfileRepository $repository
      */
-    public function __construct(ProviderRepository $repository)
+    public function __construct(ProfileRepository $repository)
     {
         $this->repository = $repository;
     }

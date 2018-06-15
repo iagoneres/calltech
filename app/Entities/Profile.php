@@ -2,12 +2,16 @@
 
 namespace App\Entities;
 
+use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
+
 /**
- * Class Provider.
+ * Class Profile.
  *
  * @package namespace App\Entities;
  */
-class Provider extends AppModel
+class Profile extends AppModel
 {
 
     /**
@@ -17,19 +21,15 @@ class Provider extends AppModel
      */
     protected $fillable = [
         'user_id',
-        'cnpj',
-        'rating'
-    ];
-
-    /**
-     * The attributes of date type.
-     *
-     * @var array
-     */
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at'
+        'rating',
+        'postal_code',
+        'street',
+        'number',
+        'neighborhood',
+        'city',
+        'state',
+        'country',
+        'complement'
     ];
 
     /**
@@ -47,13 +47,4 @@ class Provider extends AppModel
     {
         return $this->hasMany(Skill::class);
     }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function proposals()
-    {
-        return $this->hasMany(Proposal::class);
-    }
-
 }

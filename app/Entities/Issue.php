@@ -16,7 +16,7 @@ class Issue extends AppModel
      * @var array
      */
     protected $fillable = [
-        'customer_id',
+        'user_id',
         'title',
         'category',
         'level',
@@ -38,9 +38,9 @@ class Issue extends AppModel
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function customer()
+    public function user()
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(User::class);
     }
 
     /**

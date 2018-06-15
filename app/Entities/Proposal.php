@@ -45,9 +45,9 @@ class Proposal extends AppModel
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function provider()
+    public function user()
     {
-        return $this->belongsTo(ProviderService::class);
+        return $this->belongsTo(User::class);
     }
 
 }

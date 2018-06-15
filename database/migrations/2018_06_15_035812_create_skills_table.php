@@ -18,13 +18,13 @@ class CreateSkillsTable extends Migration
 		Schema::create('skills', function(Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('provider_id');
+            $table->unsignedInteger('profile_id');
             $table->string('description');
 
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('provider_id')->references('id')->on('providers')
+            $table->foreign('profile_id')->references('id')->on('profiles')
                 ->onDelete('cascade');
 		});
 	}

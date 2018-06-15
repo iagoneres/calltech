@@ -19,14 +19,14 @@ class CreateProposalsTable extends Migration
             $table->increments('id');
 
             $table->unsignedInteger('provider_id');
-            $table->unsignedInteger('issue_id');
+            $table->unsignedInteger('user_id');
             $table->tinyInteger('status');
             $table->decimal('value', 10, 2);
 
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('provider_id')->references('id')->on('providers')
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade');
 		});
 	}

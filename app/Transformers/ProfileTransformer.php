@@ -3,23 +3,23 @@
 namespace App\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use App\Entities\Provider;
+use App\Entities\Profile;
 
 /**
- * Class ProviderTransformer.
+ * Class ProfileTransformer.
  *
  * @package namespace App\Transformers;
  */
-class ProviderTransformer extends TransformerAbstract
+class ProfileTransformer extends TransformerAbstract
 {
     /**
-     * Transform the Provider entity.
+     * Transform the Profile entity.
      *
-     * @param \App\Entities\Provider $model
+     * @param \App\Entities\Profile $model
      *
      * @return array
      */
-    public function transform(Provider $model)
+    public function transform(Profile $model)
     {
         return [
             'id'         => (int) $model->id,

@@ -16,7 +16,7 @@ class Skill extends AppModel
      * @var array
      */
     protected $fillable = [
-        'provider_id',
+        'profile_id',
         'description',
     ];
 
@@ -34,9 +34,9 @@ class Skill extends AppModel
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function provider()
+    public function profile()
     {
-        return $this->belongsTo(Provider::class);
+        return $this->belongsTo(Profile::class);
     }
 
 }
